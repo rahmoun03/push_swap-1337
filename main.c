@@ -6,7 +6,7 @@
 /*   By: arahmoun <arahmoun@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 04:23:23 by arahmoun          #+#    #+#             */
-/*   Updated: 2023/01/26 10:44:14 by arahmoun         ###   ########.fr       */
+/*   Updated: 2023/01/26 17:06:27 by arahmoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ void	lst_init(t_all *stack, char **av, int ac)
 	stack->a = NULL;
 	stack->numbers = NULL;
 	stack->argv = NULL;
+	empty(ac, av);
 	while (i < ac)
 		stack->numbers = ft_strjoin(stack->numbers, av[i++]);
 	stack->argv = ft_split(stack->numbers, ' ');
@@ -51,6 +52,7 @@ void	lst_init(t_all *stack, char **av, int ac)
 		ft_lstadd_back(&stack->a, ft_lstnew(ft_atoi(stack->argv[stack->argc])));
 		stack->argc++;
 	}
+	check_if_sort(stack->a);
 }
 
 int	main(int ac, char **av)
