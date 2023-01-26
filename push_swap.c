@@ -6,7 +6,7 @@
 /*   By: arahmoun <arahmoun@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 00:39:36 by arahmoun          #+#    #+#             */
-/*   Updated: 2023/01/24 00:44:10 by arahmoun         ###   ########.fr       */
+/*   Updated: 2023/01/25 18:51:41 by arahmoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ void	rra(t_all *stack)
 	tmp->next = NULL;
 	last->next = head;
 	stack->a = last;
+	write(1, "rra\n", 4);
 }
 
 void	rrb(t_all *stack)
@@ -48,10 +49,12 @@ void	rrb(t_all *stack)
 	tmp->next = NULL;
 	last->next = head;
 	stack->b = last;
+	write(1, "rrb\n", 4);
 }
 
 void	rrr(t_all *stack)
 {
 	rra(stack);
 	rrb(stack);
+	write(1, "rrr\n", 4);
 }

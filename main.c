@@ -6,7 +6,7 @@
 /*   By: arahmoun <arahmoun@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 04:23:23 by arahmoun          #+#    #+#             */
-/*   Updated: 2023/01/24 20:50:03 by arahmoun         ###   ########.fr       */
+/*   Updated: 2023/01/26 10:44:14 by arahmoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,17 +36,20 @@ void	lst_init(t_all *stack, char **av, int ac)
 {
 	int	i;
 
-	stack->a = NULL;
 	i = 1;
+	stack->b = NULL;
+	stack->a = NULL;
+	stack->numbers = NULL;
+	stack->argv = NULL;
 	while (i < ac)
 		stack->numbers = ft_strjoin(stack->numbers, av[i++]);
 	stack->argv = ft_split(stack->numbers, ' ');
 	ft_duble_int(stack->argv);
-	i = 0;
-	while (stack->argv[i])
+	stack->argc = 0;
+	while (stack->argv[stack->argc])
 	{
-		ft_lstadd_back(&stack->a, ft_lstnew(ft_atoi(stack->argv[i])));
-		i++;
+		ft_lstadd_back(&stack->a, ft_lstnew(ft_atoi(stack->argv[stack->argc])));
+		stack->argc++;
 	}
 }
 
@@ -55,26 +58,26 @@ int	main(int ac, char **av)
 	t_all	*stack;
 
 	stack = (t_all *)malloc(sizeof(t_all));
-	stack->numbers = NULL;
-	stack->argv = NULL;
-	stack->b = NULL;
-	if (ac < 2)
-		ft_error();
-	else
+	if (ac >= 2)
 	{
 		lst_init(stack, av, ac);
-		/*-----  a  -------*/
-		while (stack->a != NULL)
-		{
-			ft_printf("%s%d%s\n", RED, stack->a->data, DEFFAULT);
-			stack->a = stack->a->next;
-		}
-		/* -----  b  ------*/
-		while (stack->b != NULL)
-		{
-			ft_printf("%s%d%s\n", GREEN, stack->b->data, DEFFAULT);
-			stack->b = stack->b->next;
-		}
+		// ft_printf("%d\n", stack->argc);
+		if (stack->argc <= 3)
+			sort2_3(stack);
+		else if (stack->argc == 4)
+			sort4(stack);
+		// /*-----  a  -------*/
+		// while (stack->a != NULL)
+		// {
+		// 	ft_printf("%s%d%s\n", RED, stack->a->data, DEFFAULT);
+		// 	stack->a = stack->a->next;
+		// }
+		// /* -----  b  ------*/
+		// while (stack->b != NULL)
+		// {
+		// 	ft_printf("%s%d%s\n", GREEN, stack->b->data, DEFFAULT);
+		// 	stack->b = stack->b->next;
+		// }
 	}
 	return (0);
 }
