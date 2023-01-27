@@ -1,18 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort4.c                                            :+:      :+:    :+:   */
+/*   sort4_5.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arahmoun <arahmoun@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/26 10:47:29 by arahmoun          #+#    #+#             */
-/*   Updated: 2023/01/26 16:50:08 by arahmoun         ###   ########.fr       */
+/*   Created: 2023/01/26 11:36:41 by arahmoun          #+#    #+#             */
+/*   Updated: 2023/01/27 09:59:42 by arahmoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	sort4(t_all *stack)
+void	return_to_a(int j, t_all *stack)
+{
+	int	last;
+
+	last = 0;
+	while (j > 0)
+	{
+		last = the_last(stack->b)->data;
+		if (stack->b->data < last)
+			rrb(stack);
+		else
+		{
+			pa(stack);
+			if (stack->a->data > stack->a->next->data)
+				sa(stack);
+			j--;
+		}
+	}
+}
+
+void	sort4_5(t_all *stack)
 {
 	int	i;
 	int	last;
@@ -21,7 +41,7 @@ void	sort4(t_all *stack)
 	j = 0;
 	last = the_last(stack->a)->data;
 	i = 0;
-	while (i <= stack->argc * 2)
+	while (i < stack->argc * 2)
 	{
 		last = the_last(stack->a)->data;
 		if (stack->a->data > last)
@@ -34,19 +54,5 @@ void	sort4(t_all *stack)
 		i++;
 	}
 	if (stack->b)
-	{
-		while (j > 0)
-		{
-			last = the_last(stack->b)->data;
-			if (stack->b->data < last)
-				rb(stack);
-			last = the_last(stack->b)->data;
-			if (stack->b->data < last)
-				rb(stack);
-			if (j-1 > 0 && stack->b->data < stack->b->next->data)
-				sb(stack);
-			pa(stack);
-			j--;
-		}
-	}
+		return_to_a(j, stack);
 }

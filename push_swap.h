@@ -6,7 +6,7 @@
 /*   By: arahmoun <arahmoun@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 04:23:34 by arahmoun          #+#    #+#             */
-/*   Updated: 2023/01/26 16:57:35 by arahmoun         ###   ########.fr       */
+/*   Updated: 2023/01/27 09:57:23 by arahmoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void				ft_is_digit(char **av);
 char				*ft_strjoin(char *s1, char *s2);
 char				**ft_split(char *s, char c);
 void				empty(int ac, char **av);
-void    			check_if_sort(t_node *a);
+void				check_if_sort(t_node *a);
 // linked list
 void				ft_lstadd_back(t_node **lst, t_node *new_);
 void				ft_lstadd_front(t_node **lst, t_node *new_);
@@ -67,8 +67,9 @@ void				ra(t_all *stack);
 void				rb(t_all *stack);
 void				rr(t_all *stack);
 // sort functions
-void    			sort2_3(t_all *stack);
-void				sort4(t_all *stack);
+void				sort2_3(t_all *stack);
+void				sort4_5(t_all *stack);
+void				sort100(t_all *stack);
 // utils for sort
 t_node				*the_last(t_node *node);
 #endif

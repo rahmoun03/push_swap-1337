@@ -6,7 +6,7 @@
 /*   By: arahmoun <arahmoun@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 00:38:44 by arahmoun          #+#    #+#             */
-/*   Updated: 2023/01/26 16:17:40 by arahmoun         ###   ########.fr       */
+/*   Updated: 2023/01/27 08:51:33 by arahmoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_error(void)
 {
-	ft_printf("%sERROR%s\n", RED, DEFFAULT);
+	ft_printf("%sError%s\n", RED, DEFFAULT);
 	exit(1);
 }
 
@@ -41,7 +41,7 @@ void	ft_duble_int(char **av)
 int	one_digit(char *str)
 {
 	int	j;
-	int i;
+	int	i;
 
 	i = 0;
 	j = 0;
@@ -56,12 +56,12 @@ int	one_digit(char *str)
 
 void	empty(int ac, char **av)
 {
-	int i;
+	int	i;
 
 	i = 1;
 	while (ac > i)
 	{
-		if(!(ft_strlen(av[i])) || !(one_digit(av[i])))
+		if (!(ft_strlen(av[i])) || !(one_digit(av[i])))
 			ft_error();
 		i++;
 	}
