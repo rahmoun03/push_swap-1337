@@ -6,7 +6,7 @@
 /*   By: arahmoun <arahmoun@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 04:23:23 by arahmoun          #+#    #+#             */
-/*   Updated: 2023/01/27 10:57:19 by arahmoun         ###   ########.fr       */
+/*   Updated: 2023/01/28 08:54:50 by arahmoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,34 +64,55 @@ void	sorting(t_all *stack)
 	else
 	{
 		sort100(stack);
-		sort100(stack);
-		sort100(stack);
 	}
 }
 int	main(int ac, char **av)
 {
+	int i;
 	t_all	*stack;
 
 	stack = (t_all *)malloc(sizeof(t_all));
 	if (ac >= 2)
 	{
-		
 		lst_init(stack, av, ac);
 		sorting(stack);
 		// ft_printf("%d\n", stack->argc);
 		// system("leaks push_swap");
+
+
+
+/*--------------- test my code ------------------*/
+
+
 		/*-----  a  -------*/
 		while (stack->a != NULL)
 		{
-			ft_printf("%s%d%s\n", RED, stack->a->data, DEFFAULT);
+			i = 0;
+			while (i < stack->a->data)
+			{
+				ft_printf("%s %s", GREEN, DEFFAULT);
+				i++;
+			}
+			ft_printf("%s%d%s\n", DEFFAULT, stack->a->data, DEFFAULT);
 			stack->a = stack->a->next;
 		}
-		// /* -----  b  ------*/
-		// while (stack->b != NULL)
-		// {
-		// 	ft_printf("%s%d%s\n", GREEN, stack->b->data, DEFFAULT);
-		// 	stack->b = stack->b->next;
-		// }
+		/* -----  b  ------*/
+		while (stack->b != NULL)
+		{
+			i = 0;
+			while (i < stack->b->data)
+			{
+				ft_printf("%s %s", YOLLOW, DEFFAULT);
+				i++;
+			}
+			ft_printf("%s%d%s\n", DEFFAULT, stack->b->data, DEFFAULT);
+			stack->b = stack->b->next;
+		}
+
+		
+/*------------------------------------------------------*/
+
+		
 	}
 	return (0);
 }

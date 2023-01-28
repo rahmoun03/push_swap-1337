@@ -6,61 +6,64 @@
 /*   By: arahmoun <arahmoun@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 09:35:59 by arahmoun          #+#    #+#             */
-/*   Updated: 2023/01/27 10:42:06 by arahmoun         ###   ########.fr       */
+/*   Updated: 2023/01/27 16:16:33 by arahmoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	return_2_a(int j, t_all *stack)
+void	return_2_a(t_all *stack)
 {
-	int	last;
+	int i;
 
-	last = 0;
-	while (j > 0)
+	i = 0;
+	while (i < stack->argc)
 	{
-		last = the_last(stack->b)->data;
-		if (stack->b->data < last)
-			rrb(stack);
-        if (j > 1 && stack->b->data <  stack->b->next->data)
-            sb(stack);
-		else
-		{
-			pa(stack);
-			if (stack->a->data > stack->a->next->data)
-				sa(stack);
-			j--;
-		}
+		pa(stack);
+		i++;
 	}
+}
+
+int the_min(t_all *stack)
+{
+    int i;
+    int key;
+    t_node *tmp;
+
+    i = 0;
+    tmp = stack->a;
+    key = tmp->data;
+    while (tmp)
+    {
+        if(tmp->data <= key)
+            key = tmp->data;
+        i++;
+		tmp = tmp->next;
+    }
+    return (key);
 }
 
 void	sort100(t_all *stack)
 {
 	int	i;
-	int	last;
-	int	j;
+	int min;
 
-	j = 0;
-	last = the_last(stack->a)->data;
 	i = 0;
-	while (i < stack->argc * 2)
+	while (i < stack->argc)
 	{
-		last = the_last(stack->a)->data;
-		if (stack->a->data > last)
-			ra(stack);
-        else if((stack->a->data != last) && (stack->a->data > stack->a->next->data))
-            sa(stack);
-		else if (stack->a->data < last)
+		min = the_min(stack);
+		ft_printf("{%d} {%d} ", the_min(stack), stack->a->data);
+		if(min == stack->a->data)
 		{
 			pb(stack);
-			j++;
-            if (j > 1 && stack->b->data < stack->b->next->data)
-				sb(stack);
-            if (j > 1 && stack->b->data < the_last(stack->b)->data)
-                rrb(stack);
+			i++;
 		}
-		i++;
+		else
+		{
+			ra(stack);
+		}
+	
 	}
 	if (stack->b)
-		return_2_a(j, stack);
+		return_2_a(stack);
 }

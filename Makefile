@@ -6,7 +6,7 @@
 #    By: arahmoun <arahmoun@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/23 04:23:38 by arahmoun          #+#    #+#              #
-#    Updated: 2023/01/27 09:57:15 by arahmoun         ###   ########.fr        #
+#    Updated: 2023/01/27 15:56:32 by arahmoun         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,6 +30,7 @@ all : ${NAME}
 ${NAME} :${FUNCS}
 	@cc ${FLAGS} ${FUNCS} -o $@
 	@tput setaf 10 ; echo "The executable file has been ready ✅"
+	
 clean :
 	@clear
 	@rm -rf ${NAME}

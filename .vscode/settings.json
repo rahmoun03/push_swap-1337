@@ -1,3 +1,10 @@
 {
-    "C_Cpp.errorSquiggles": "disabled"
+    "C_Cpp.errorSquiggles": "disabled",
+    "makefile.launchConfigurations": [
+        {
+            "cwd": "/Users/arahmoun/Desktop/Push_swap",
+            "binaryPath": "/Users/arahmoun/Desktop/Push_swap/push_swap",
+            "binaryArgs": []
+        }
+    ]
 }
