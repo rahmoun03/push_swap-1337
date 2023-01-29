@@ -6,7 +6,7 @@
 /*   By: arahmoun <arahmoun@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 09:35:59 by arahmoun          #+#    #+#             */
-/*   Updated: 2023/01/29 07:58:56 by arahmoun         ###   ########.fr       */
+/*   Updated: 2023/01/29 11:54:50 by arahmoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,47 +49,46 @@ int	the_s_min(t_node *a)
     t_node *tmp;
 
     tmp = a;
-    key = tmp->data;
-	s_key = key;
+	key = the_min(a);
+    s_key = tmp->data;
     while (tmp)
     {
-        if(tmp->data < key)
-		{
-			s_key = key;
-            key = tmp->data;
-			tmp = a;
-		}
-		if(tmp->data < s_key && tmp->data != key)
+		if (tmp->data < s_key && tmp->data > key)
 			s_key = tmp->data;
 		tmp = tmp->next;
     }
     return (s_key);
 }
-
-int	the_last_min(t_node *a)
+int min_3(t_node *a)
 {
-    int key;
-	int s_key;
+	int key;
 	int last;
     t_node *tmp;
 
     tmp = a;
-    key = tmp->data;
-	s_key = key;
-	last = s_key;
+    key = the_s_min(a);
+	last = tmp->data;
     while (tmp)
     {
-        if(tmp->data < key)
-		{
-			s_key = key;
-            key = tmp->data;
-		}
-		if(tmp->data < s_key && tmp->data != key)
-		{
-			last = s_key;
-			s_key = tmp->data;
-		}
-		if(tmp->data < last && tmp->data != key && tmp->data != s_key)
+		if(tmp->data < last && tmp->data > key)
+			last = tmp->data;
+		tmp = tmp->next;
+    }
+    return (last);
+}
+
+int	the_last_min(t_node *a)
+{
+    int key;
+	int last;
+    t_node *tmp;
+
+    tmp = a;
+    key = min_3(a);
+	last = tmp->data;
+    while (tmp)
+    {
+		if(tmp->data < last && tmp->data > key)
 			last = tmp->data;
 		tmp = tmp->next;
     }
@@ -128,32 +127,60 @@ int the_big(t_node *a)
     return (key);
 }
 
+int distance(t_node *a, int key)
+{
+	int dis;
+	int i;
+
+	i = 0;
+	dis = 0;
+	if (position(a, key) > count_node(a) / 2)
+		dis = count_node(a) + 1 - position(a, key);
+	else 
+		dis = position(a, key) - 1;
+	return dis;
+}
+
 void	sort100(t_all *stack)
 {
-	int p_s_min;
-	int p_min;
-	int p_last_min;
-	
 	while (stack->a)
 	{
-		p_last_min = position(stack->a, the_last_min(stack->a));
-		p_s_min = position(stack->a, the_s_min(stack->a));
-		p_min = position(stack->a, the_min(stack->a));
-
-		if(p_s_min - count_node(stack->a) > p_min - count_node(stack->a))
+		// ft_printf("the min :%d ,the S :%d  ,the 3eme :%d ,the last :%d  ", the_min(stack->a), the_s_min(stack->a), min_3(stack->a), the_last_min(stack->a));
+		if(distance(stack->a, the_min(stack->a)) < distance(stack->a, the_s_min(stack->a))
+			&& distance(stack->a, the_min(stack->a)) < distance(stack->a, min_3(stack->a))
+			&& distance(stack->a, the_min(stack->a)) < distance(stack->a, the_last_min(stack->a)))
 		{
 			if(the_min(stack->a) == stack->a->data)
 				pb(stack);
-			else if (p_min > count_node(stack->a) / 2)
+			else if (position(stack->a, the_min(stack->a)) > count_node(stack->a) / 2)
+				rra(stack);
+			else
+				ra(stack);
+		}
+		else if (distance(stack->a, the_s_min(stack->a)) < distance(stack->a, min_3(stack->a))
+			&& distance(stack->a, the_s_min(stack->a)) < distance(stack->a, the_last_min(stack->a)))
+		{
+			if(the_s_min(stack->a) == stack->a->data)
+				pb(stack);
+			else if (position(stack->a, the_s_min(stack->a)) > count_node(stack->a) / 2)
+				rra(stack);
+			else
+				ra(stack);
+		}
+		else if (distance(stack->a, min_3(stack->a)) < distance(stack->a, the_last_min(stack->a)))
+		{
+			if(min_3(stack->a) == stack->a->data)
+				pb(stack);
+			else if (position(stack->a, min_3(stack->a)) > count_node(stack->a) / 2)
 				rra(stack);
 			else
 				ra(stack);
 		}
 		else
 		{
-			if(the_s_min(stack->a) == stack->a->data)
+			if(the_last_min(stack->a) == stack->a->data)
 				pb(stack);
-			else if (p_s_min > count_node(stack->a) / 2)
+			else if (position(stack->a, the_last_min(stack->a)) > count_node(stack->a) / 2)
 				rra(stack);
 			else
 				ra(stack);

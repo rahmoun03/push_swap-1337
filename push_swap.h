@@ -6,7 +6,7 @@
 /*   By: arahmoun <arahmoun@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 04:23:34 by arahmoun          #+#    #+#             */
-/*   Updated: 2023/01/28 14:55:59 by arahmoun         ###   ########.fr       */
+/*   Updated: 2023/01/29 11:24:51 by arahmoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 # include "ft_printf/ft_printf.h"
 # include <stdlib.h>
 # define RED "\033[7m\033[31m"
+# define BLUE "\033[7m\033[34m"
 # define DEFFAULT "\033[0m"
 # define GREEN "\033[7m\033[32m"
 # define YOLLOW "\033[7m\033[33m"
