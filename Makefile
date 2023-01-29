@@ -6,7 +6,7 @@
 #    By: arahmoun <arahmoun@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/23 04:23:38 by arahmoun          #+#    #+#              #
-#    Updated: 2023/01/27 15:56:32 by arahmoun         ###   ########.fr        #
+#    Updated: 2023/01/28 17:31:23 by arahmoun         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,3 +39,6 @@ clean :
 fclean :clean
 
 re :fclean all
+
+test :
+	cc ${FLAGS} test.c ${SRC} 

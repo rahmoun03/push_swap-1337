@@ -6,7 +6,7 @@
 /*   By: arahmoun <arahmoun@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 04:23:34 by arahmoun          #+#    #+#             */
-/*   Updated: 2023/01/27 15:56:22 by arahmoun         ###   ########.fr       */
+/*   Updated: 2023/01/28 14:55:59 by arahmoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,10 @@ void				rr(t_all *stack);
 void				sort2_3(t_all *stack);
 void				sort4_5(t_all *stack);
 void				sort100(t_all *stack);
+void				sort_100(t_all *stack);
 // utils for sort
 t_node				*the_last(t_node *node);
+int 				the_min(t_node *a);
+int 				position(t_node *a, int key);
+int					count_node(t_node *a);
 #endif
