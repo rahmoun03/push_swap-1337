@@ -6,7 +6,7 @@
 /*   By: arahmoun <arahmoun@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 16:57:45 by arahmoun          #+#    #+#             */
-/*   Updated: 2023/01/29 08:32:59 by arahmoun         ###   ########.fr       */
+/*   Updated: 2023/01/29 09:07:46 by arahmoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,20 +18,20 @@ int main(int ac, char **av)
 {
     char *dst;
     char check[2];
-    int fd = open("test.log", O_CREAT | O_RDWR);
-    int fd_check = open("check.log", O_CREAT | O_RDWR);
-
+    int fd = open("test.log",  O_RDWR | O_CREAT, S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH | S_IWOTH);
+    int fd_check = open("check.log",  O_RDWR | O_CREAT, S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH | S_IWOTH);
     dst = NULL;
     if(ac < 2)
     {
         ft_printf("%syou need to add argument for number do you want to test %s", YOLLOW, DEFFAULT);
         return 1;
     }
+    system("make re");
+    ft_printf("waiting ...\n%s", DEFFAULT);
+    sleep(3);
     if(atoi(av[1]) == 5)
     {
         system("./push_swap 1 3 4 5 2 | wc -l | awk -v ORS="" '{print$1}' > test.log && ./push_swap 1 3 4 5 2 | ./checker_Mac 1 3 4 5 2 > check.log");
-        fd = open("test.log", O_RDWR);
-        fd_check = open("check.log", O_RDWR);
         dst = (char *)malloc(5);
         dst[5] = '\0';
         read(fd, dst, 4);
