@@ -6,7 +6,7 @@
 /*   By: arahmoun <arahmoun@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 11:36:41 by arahmoun          #+#    #+#             */
-/*   Updated: 2023/01/29 08:28:36 by arahmoun         ###   ########.fr       */
+/*   Updated: 2023/01/30 11:41:59 by arahmoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	sort4_5(t_all *stack)
 		else
 			rra(stack);
 	}
-	if(count_node(stack->a) >= 2 && stack->a->data > stack->a->next->data)
+	if (count_node(stack->a) >= 2 && stack->a->data > stack->a->next->data)
 		sa(stack);
 	while (stack->b)
 		pa(stack);

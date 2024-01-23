@@ -6,7 +6,7 @@
 /*   By: arahmoun <arahmoun@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 04:23:34 by arahmoun          #+#    #+#             */
-/*   Updated: 2023/01/29 11:24:51 by arahmoun         ###   ########.fr       */
+/*   Updated: 2023/01/30 12:03:20 by arahmoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,19 @@ void				sort100(t_all *stack);
 void				sort_100(t_all *stack);
 // utils for sort
 t_node				*the_last(t_node *node);
-int 				the_min(t_node *a);
-int 				position(t_node *a, int key);
+int					position(t_node *a, int key);
 int					count_node(t_node *a);
+int					the_closest_1(t_node *a);
+int					the_closest_2(t_node *a);
+int					the_closest(t_all *stack, int n1, int n2);
+//   ben 10
+int					the_min(t_node *a);
+int					the_s_min(t_node *a);
+int					min_3(t_node *a);
+int					min_4(t_node *a);
+int					min_5(t_node *a);
+int					min_6(t_node *a);
+int					min_7(t_node *a);
+int					min_8(t_node *a);
+int					the_last_min(t_node *a);
 #endif

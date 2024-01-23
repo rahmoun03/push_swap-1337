@@ -6,7 +6,7 @@
 /*   By: arahmoun <arahmoun@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 00:48:40 by arahmoun          #+#    #+#             */
-/*   Updated: 2023/01/27 08:35:33 by arahmoun         ###   ########.fr       */
+/*   Updated: 2023/01/30 12:10:46 by arahmoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	sort2_3(t_all *stack)
 		if (stack->a->data > stack->a->next->data)
 			sa(stack);
 	}
-	else if (stack->argc == 3)
+	else
 	{
 		nb = the_last(stack->a)->data;
 		if (stack->a->data > nb)

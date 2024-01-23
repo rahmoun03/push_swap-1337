@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arahmoun <arahmoun@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: arahmoun <arahmoun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 04:23:23 by arahmoun          #+#    #+#             */
-/*   Updated: 2023/01/29 11:52:51 by arahmoun         ###   ########.fr       */
+/*   Updated: 2024/01/23 17:04:19 by arahmoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ void	sorting(t_all *stack)
 int	main(int ac, char **av)
 {
 	// t_node *tmp;
-	// int i;
+	int i;
 	t_all	*stack;
 
 	stack = (t_all *)malloc(sizeof(t_all));
@@ -84,42 +84,42 @@ int	main(int ac, char **av)
 
 // /*--------------- test my code ------------------*/
 
-// 		tmp = stack->a;
-// 		while (tmp != NULL)
-// 		{
-// 			i = 0;
-// 			while (i < tmp->data)
-// 			{
-// 				ft_printf("%s %s", GREEN, DEFFAULT);
-// 				i++;
-// 			}
-// 			ft_printf("%s%d%s\n", DEFFAULT, tmp->data, DEFFAULT);
-// 			tmp = tmp->next;
-// 		}
-// 		/*-----  a  -------*/
-// 		while (stack->a != NULL)
-// 		{
-// 			i = 0;
-// 			while (i < stack->a->data)
-// 			{
-// 				ft_printf("%s %s", GREEN, DEFFAULT);
-// 				i++;
-// 			}
-// 			ft_printf("%s%d%s\n", DEFFAULT, stack->a->data, DEFFAULT);
-// 			stack->a = stack->a->next;
-// 		}
-// 		/* -----  b  ------*/
-// 		while (stack->b != NULL)
-// 		{
-// 			i = 0;
-// 			while (i < stack->b->data)
-// 			{
-// 				ft_printf("%s %s", YOLLOW, DEFFAULT);
-// 				i++;
-// 			}
-// 			ft_printf("%s%d%s\n", DEFFAULT, stack->b->data, DEFFAULT);
-// 			stack->b = stack->b->next;
-// 		}
+		// tmp = stack->a;
+		// while (tmp != NULL)
+		// {
+		// 	i = 0;
+		// 	while (i < tmp->data)
+		// 	{
+		// 		ft_printf("%s %s", GREEN, DEFFAULT);
+		// 		i++;
+		// 	}
+		// 	ft_printf("%s%d%s\n", DEFFAULT, tmp->data, DEFFAULT);
+		// 	tmp = tmp->next;
+		// }
+		/*-----  a  -------*/
+		while (stack->a != NULL)
+		{
+			i = 0;
+			while (i < stack->a->data)
+			{
+				ft_printf("%s %s", GREEN, DEFFAULT);
+				i++;
+			}
+			ft_printf("%s%d%s\n", DEFFAULT, stack->a->data, DEFFAULT);
+			stack->a = stack->a->next;
+		}
+		/* -----  b  ------*/
+		while (stack->b != NULL)
+		{
+			i = 0;
+			while (i < stack->b->data)
+			{
+				ft_printf("%s %s", YOLLOW, DEFFAULT);
+				i++;
+			}
+			ft_printf("%s%d%s\n", DEFFAULT, stack->b->data, DEFFAULT);
+			stack->b = stack->b->next;
+		}
 
 		
 /*------------------------------------------------------*/
